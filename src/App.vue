@@ -1,32 +1,17 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <header>
-<!--    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />-->
+  <header class="the-header">header</header>
 
-<!--    <div class="wrapper">-->
-<!--      <HelloWorld msg="You did it!" />-->
-
-<!--      <nav>-->
-<!--        <RouterLink to="/">Home</RouterLink>-->
-<!--        <RouterLink to="/about">About</RouterLink>-->
-<!--      </nav>-->
-<!--      test-->
-<!--    </div>-->
-    header
-  </header>
-
-<!--  <RouterView />-->
+  <main>
+    <RouterView />
+  </main>
 </template>
 
-<style scoped lang="scss">
-
+<style lang="scss">
 $bgColor: #cac;
 
-.wrapper {
+.the-header {
   background-color: $bgColor;
 }
 </style>
