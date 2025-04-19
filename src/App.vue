@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheHeader from '@/components/TheHeader.vue'
+</script>
 
 <template>
-  <header class="the-header">header</header>
+  <TheHeader/>
 
   <main>
     <RouterView />
@@ -9,9 +11,4 @@
 </template>
 
 <style lang="scss">
-$bgColor: #cac;
-
-.the-header {
-  background-color: $bgColor;
-}
 </style>
