@@ -2,18 +2,21 @@
   --font-family-primary: 'Ubuntu', sans-serif;
 
   // line heights
-  --line-height-s: 12px;
+  --line-height-xs: 12px;
+  --line-height-s: 18px;
   --line-height-m: 20px;
   --line-height-l: 24px;
-  --line-height-xl: 36px;
+  --line-height-xl: 32px;
+  --line-height-xxl: 36px;
+  --line-height-xxxl: 48px;
 
   // font sizes
-  --font-size-xs: 0.75rem; // 12px
+  --font-size-s: 0.75rem; // 12px
   --font-size-m: 1rem; // 16px
   --font-size-l: 1.5rem; // 24px
   --font-size-xl: 2rem; // 40px
 
   // font weights
   --font-weight-regular: 400;
-  --font-weight-bold: 700;
+  --font-weight-medium: 500;
 }
