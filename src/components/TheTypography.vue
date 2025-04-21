@@ -6,19 +6,21 @@ defineProps(
     h3: Boolean,
     h2: Boolean,
     h1: Boolean,
+    className: String,
   }
 )
 </script>
 
 
 <template>
-  <p :class="{
-    'the-typography__p_p3': p3,
-    'the-typography__p_p1': p1,
-    'the-typography__p_h3': h3,
-    'the-typography__p_h2': h2,
-    'the-typography__p_h1': h1,
-  }"
+  <p :class="[
+    p3 && 'the-typography__p_p3',
+    p1 && 'the-typography__p_p1',
+    h3 && 'the-typography__p_h3',
+    h2 && 'the-typography__p_h2',
+    h1 && 'the-typography__p_h1',
+    className
+  ]"
      class="the-typography the-typography__p"
   >
     <slot></slot>

@@ -26,6 +26,5 @@
 }
 </style>
 <script setup lang="ts">
-import IconHeart from '@/components/icons/IconHeart.vue'
 import FavouritesBadge from '@/components/FavouritesBadge.vue'
 </script>
