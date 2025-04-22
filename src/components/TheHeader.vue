@@ -1,8 +1,15 @@
+<script setup lang="ts">
+import FavouritesBadge from '@/components/FavouritesBadge.vue'
+import { inject } from 'vue'
+
+const { favCount } = inject('provider')
+
+</script>
 <template>
   <header class="the-header">
     <div class="the-header__container">
       <img src="/logo.png" alt="logo" class="the-header__logo" />
-      <FavouritesBadge :value="123"/>
+      <FavouritesBadge :value="favCount" />
     </div>
   </header>
 </template>
@@ -25,6 +32,3 @@
   }
 }
 </style>
-<script setup lang="ts">
-import FavouritesBadge from '@/components/FavouritesBadge.vue'
-</script>

@@ -7,7 +7,7 @@ import IconHeart from '@/components/icons/IconHeart.vue'
   <div class="favourites-badge">
     <div class="favourites-badge__container">
       <IconHeart />
-      <span class="favourites-badge__indicator">{{value}}</span>
+      <span v-if="value>0" class="favourites-badge__indicator">{{value}}</span>
     </div>
   </div>
 </template>
