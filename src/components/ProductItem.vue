@@ -4,7 +4,8 @@ import IconHeartOutline from '@/components/icons/IconHeartOutline.vue'
 
 defineProps({
   title: String,
-  price: Number
+  price: Number,
+  image: String
 })
 </script>
 
@@ -12,9 +13,9 @@ defineProps({
 <div class="product-item">
   <div class="product-item__icon"><IconHeartOutline/></div>
   <div class="product-item__container">
-  <img src="/no-image.webp" alt="item-image" class="product-item__img"/>
-    <TheTypography p3 className="product-item__text1">{{ title }}</TheTypography>
-    <TheTypography h3>{{ JSON.stringify(price) }}</TheTypography>
+  <img :src="image" alt="item-image" class="product-item__img"/>
+    <TheTypography p3 center className="product-item__text1">{{ title }}</TheTypography>
+    <TheTypography h3 center>{{ JSON.stringify(price) }} руб.</TheTypography>
   </div>
 </div>
 </template>
@@ -33,12 +34,16 @@ defineProps({
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid red;
     padding-bottom: 16px;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.15) 0 10px 20px 0;
+      transition: 0.5s;
+    }
   }
   &__img {
+    height: 336px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   &__text1 {
     margin-top: 16px;

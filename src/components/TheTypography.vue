@@ -7,6 +7,7 @@ defineProps(
     h2: Boolean,
     h1: Boolean,
     className: String,
+    center: Boolean,
   }
 )
 </script>
@@ -19,6 +20,7 @@ defineProps(
     h3 && 'the-typography__p_h3',
     h2 && 'the-typography__p_h2',
     h1 && 'the-typography__p_h1',
+    center && 'the-typography__p_center',
     className
   ]"
      class="the-typography the-typography__p"
@@ -53,6 +55,10 @@ defineProps(
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xxxl);
     font-weight: var(--font-weight-medium);
+  }
+
+  &_center {
+    text-align: center;
   }
 }
 
