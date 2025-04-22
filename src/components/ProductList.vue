@@ -6,17 +6,28 @@ type ItemType = {
   price: number
   title: string
   image: string
+  isFavourite: boolean
 }
 
 defineProps({
   items: Array<ItemType>,
+  onClickFavourite: Function
 })
+
 </script>
 
 <template>
   <div class="product-list">
     <div class="product-list__container">
-      <ProductItem v-for="item in items" :key="item.id" :price="item.price" :title="item.title" :image="item.image" />
+      <ProductItem v-for="item in items"
+                   :key="item.id"
+                   :price="item.price"
+                   :title="item.title"
+                   :image="item.image"
+                   :item="item"
+                   :is-favourite="item.isFavourite"
+                   :onClickFavourite = "()=>onClickFavourite(item)"
+      />
     </div>
   </div>
 </template>

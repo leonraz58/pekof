@@ -1,17 +1,21 @@
-<script setup lang="ts">
+<script setup>
 import TheTypography from '@/components/TheTypography.vue'
 import IconHeartOutline from '@/components/icons/IconHeartOutline.vue'
+import IconHeart from '@/components/icons/IconHeart.vue'
 
 defineProps({
   title: String,
   price: Number,
-  image: String
+  image: String,
+  isFavourite: Boolean,
+  onClickFavourite: Function,
 })
+
 </script>
 
 <template>
 <div class="product-item">
-  <div class="product-item__icon"><IconHeartOutline/></div>
+  <div class="product-item__icon" @click="onClickFavourite"><IconHeartOutline v-if="!isFavourite"/><IconHeart v-if="isFavourite"/></div>
   <div class="product-item__container">
   <img :src="image" alt="item-image" class="product-item__img"/>
     <TheTypography p3 center className="product-item__text1">{{ title }}</TheTypography>
@@ -23,6 +27,7 @@ defineProps({
 <style lang="scss">
 .product-item {
   position: relative;
+  user-select: none;
   &__icon {
     position: absolute;
     top: 10px;

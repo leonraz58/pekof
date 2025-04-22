@@ -6,21 +6,28 @@ import axios from 'axios'
 const items = ref([])
 
 onMounted(async ()=>{
-  //fetch('https://fakestoreapi.com/products').then(res=>res.json().then(data=>console.log(data)))
   try {
     const { data } = await axios.get('https://fakestoreapi.com/products')
-    items.value = data
-    console.log(data)
+    items.value = data.map((obj) => ({
+      ...obj,
+      isFavourite: false,
+    }))
   } catch (error) {
     console.log(error)
   }
-
 })
+
+const onClickFavourite = (item) => {
+  item.isFavourite = !item.isFavourite
+}
+
+
+
 </script>
 
 <template>
   <div class="the-banner"></div>
-  <ProductList :items="items"/>
+  <ProductList :items="items" :onClickFavourite="onClickFavourite"/>
 </template>
 
 <style lang="scss">
