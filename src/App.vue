@@ -2,6 +2,7 @@
 import TheHeader from '@/components/TheHeader.vue'
 import { onMounted, provide, ref, watch, computed} from 'vue'
 import axios from 'axios'
+import TheFooter from '@/components/TheFooter.vue'
 
 const items = ref([])
 const favourites = ref([])
@@ -59,7 +60,9 @@ provide('provider', {
   <main>
     <RouterView />
   </main>
+  <TheFooter/>
 </template>
 
 <style lang="scss">
+
 </style>

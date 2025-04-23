@@ -16,6 +16,7 @@ const { favCount } = inject('provider')
 
 <style lang="scss">
 .the-header {
+  box-sizing: content-box;
   border-bottom: 1px solid var(--primary-900);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   &__container {
