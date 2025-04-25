@@ -10,18 +10,19 @@ defineProps({
   isFavourite: Boolean,
   onClickFavourite: Function,
 })
-
 </script>
 
 <template>
-<div class="product-item">
-  <div class="product-item__icon" @click="onClickFavourite"><IconHeartOutline v-if="!isFavourite"/><IconHeart v-if="isFavourite"/></div>
-  <div class="product-item__container">
-  <img :src="image" alt="item-image" class="product-item__img"/>
-    <TheTypography p3 center className="product-item__text1">{{ title }}</TheTypography>
-    <TheTypography h3 center>{{ JSON.stringify(price) }} руб.</TheTypography>
+  <div class="product-item">
+    <div class="product-item__icon" @click="onClickFavourite">
+      <IconHeartOutline v-if="!isFavourite" /><IconHeart v-if="isFavourite" />
+    </div>
+    <div class="product-item__container">
+      <img :src="image" alt="item-image" class="product-item__img" />
+      <TheTypography p3 center className="product-item__title">{{ title }}</TheTypography>
+      <TheTypography h3 center>{{ JSON.stringify(price) }} руб.</TheTypography>
+    </div>
   </div>
-</div>
 </template>
 
 <style lang="scss">
@@ -50,7 +51,7 @@ defineProps({
     width: 100%;
     object-fit: contain;
   }
-  &__text1 {
+  &__title {
     margin-top: 16px;
     margin-bottom: 8px;
   }

@@ -1,68 +1,39 @@
-<script setup lang="ts">
+<script setup>
 import TheHeader from '@/components/TheHeader.vue'
-import { onMounted, provide, ref, watch, computed} from 'vue'
-import axios from 'axios'
+import { onMounted, provide, ref } from 'vue'
 import TheFooter from '@/components/TheFooter.vue'
+import { useStore } from '@/stores/products.js'
+import TheLoader from '@/components/TheLoader.vue'
 
-const items = ref([])
-const favourites = ref([])
+const store = useStore()
 
-const favCount = computed(() => favourites.value.length ?? 0)
-
-watch(
-  favourites,
-  () => {
-    localStorage.setItem('favourites', JSON.stringify(favourites.value))
-    console.log(favCount.value)
-  },
-  { deep: true }
-)
+const isLoading = ref(false)
 
 onMounted(async () => {
-  const localFavourites = localStorage.getItem('favourites')
-  favourites.value = localFavourites ? JSON.parse(localFavourites) : []
-
-  try {
-    const { data } = await axios.get('https://fakestoreapi.com/products')
-    items.value = data.map((obj) => ({
-      ...obj,
-      isFavourite: false
-    }))
-  } catch (error) {
-    console.log(error)
-  }
-
-  items.value = items.value.map((item) => ({
-    ...item, isFavourite: favourites.value.some((favItem) => favItem.id === item.id)
-  }))
+  isLoading.value = true
+  await store.fetchItems()
+  isLoading.value = false
 })
 
 const onClickFavourite = (item) => {
-  if (item.isFavourite) {
-    favourites.value.splice(favourites.value.indexOf(item), 1)
-  } else {
-    favourites.value.push(item)
-  }
+  store.setIsFavorite(item)
   item.isFavourite = !item.isFavourite
 }
 
 provide('provider', {
-  favourites,
   onClickFavourite,
-  items,
-  favCount
 })
 </script>
 
 <template>
-  <TheHeader/>
+  <TheHeader />
 
   <main>
-    <RouterView />
+    <RouterView v-if="!isLoading.valueOf()" />
+    <TheLoader v-if="isLoading.valueOf()" />
   </main>
-  <TheFooter/>
+
+  <TheFooter />
 </template>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
