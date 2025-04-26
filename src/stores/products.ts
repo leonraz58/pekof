@@ -39,9 +39,14 @@ export const useStore = defineStore('products', {
         this.favourites.push(item)
         console.log(this.favourites)
       }
+      item.isFavourite = !item.isFavourite
+      localStorage.setItem('favourites', JSON.stringify(this.favourites))
     },
   },
   getters: {
     favCount: (state) => state.favourites.length,
+    getItemById: (state) => {
+      return (itemId) => state.items.find((item) => item.id === itemId)
+    },
   },
 })

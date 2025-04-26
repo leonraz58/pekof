@@ -17,7 +17,6 @@ onMounted(async () => {
 
 const onClickFavourite = (item) => {
   store.setIsFavorite(item)
-  item.isFavourite = !item.isFavourite
 }
 
 provide('provider', {
