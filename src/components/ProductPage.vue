@@ -45,7 +45,9 @@ const { onClickFavourite } = inject('provider')
           </div>
         </div>
       </div>
-      <TheTypography v-if="!item" h1 center>Товар не найден.</TheTypography>
+    </PageContainer>
+    <PageContainer centered v-if="!item"
+      ><TheTypography h1 center>Товар не найден.</TheTypography>
     </PageContainer>
   </div>
 </template>

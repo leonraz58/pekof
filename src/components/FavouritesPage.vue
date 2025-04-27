@@ -4,18 +4,23 @@ import TheBreadcrumb from '@/components/TheBreadcrumb.vue'
 import TheTypography from '@/components/TheTypography.vue'
 import FavouritesList from '@/components/FavouritesList.vue'
 import { useStore } from '@/stores/products.js'
-import { inject } from 'vue'
+import { computed, inject } from 'vue'
 
 const store = useStore()
+const items = computed(() => store.getFavourites)
+console.log(items)
 const { onClickFavourite } = inject('provider')
 </script>
 
 <template>
   <div class="favourites-page">
-    <PageContainer>
+    <PageContainer v-if="items.length > 0">
       <TheBreadcrumb>{{ item?.title }}</TheBreadcrumb>
       <TheTypography class-name="favourites-page__title" h1>Избранное</TheTypography>
-      <FavouritesList :items="store.getFavourites" :onClickFavourite="onClickFavourite" />
+      <FavouritesList :items="items" :onClickFavourite="onClickFavourite" />
+    </PageContainer>
+    <PageContainer centered v-else>
+      <TheTypography h1>Список избранного пуст</TheTypography>
     </PageContainer>
   </div>
 </template>

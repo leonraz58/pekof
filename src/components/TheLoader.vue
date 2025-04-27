@@ -1,6 +1,8 @@
 <template>
-  <div class="the-loader the-loader__container">
-    <span class="the-loader__elem"></span>
+  <div class="the-loader">
+    <PageContainer centered>
+      <span class="the-loader__elem"></span>
+    </PageContainer>
   </div>
 </template>
 
@@ -16,12 +18,13 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
-  &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: var(--main-height);
-  }
+
+  //&__container {
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  min-height: var(--main-height);
+  //}
 }
 
 @keyframes rotation {
@@ -33,3 +36,6 @@
   }
 }
 </style>
+<script setup lang="ts">
+import PageContainer from '@/components/PageContainer.vue'
+</script>
