@@ -26,6 +26,7 @@ defineProps({
     justify-content: center;
     gap: 7px;
     border-radius: 4px;
+    cursor: pointer;
 
     &_outline {
       background-color: white;

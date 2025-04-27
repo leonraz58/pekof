@@ -7,12 +7,16 @@ import noImage from '/no-image.webp'
 import TheTypography from '@/components/TheTypography.vue'
 import TheButton from '@/components/TheButton.vue'
 import IconHeartOutline from '@/components/icons/IconHeartOutline.vue'
+import IconHeart from '@/components/icons/IconHeart.vue'
+import { inject } from 'vue'
 
 const store = useStore()
 const route = useRoute()
 
 const item = store.getItemById(+route.params.id)
 console.log(item)
+
+const { onClickFavourite } = inject('provider')
 </script>
 
 <template>
@@ -29,9 +33,13 @@ console.log(item)
               >{{ item?.price }} руб.
             </TheTypography>
             <div>
-              <TheButton outline>
+              <TheButton outline v-if="!item.isFavourite" @click="() => onClickFavourite(item)">
                 <IconHeartOutline />
                 ИЗБРАННОЕ
+              </TheButton>
+              <TheButton outline v-if="item.isFavourite" @click="() => onClickFavourite(item)">
+                <IconHeart />
+                Убрать из избранного
               </TheButton>
             </div>
           </div>
