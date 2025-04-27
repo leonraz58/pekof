@@ -4,12 +4,12 @@ import IconHeart from '@/components/icons/IconHeart.vue'
 </script>
 
 <template>
-  <div class="favourites-badge">
+  <a class="favourites-badge" href="/favourites">
     <div class="favourites-badge__container">
       <IconHeart />
-      <span v-if="value>0" class="favourites-badge__indicator">{{value}}</span>
+      <span v-if="value > 0" class="favourites-badge__indicator">{{ value }}</span>
     </div>
-  </div>
+  </a>
 </template>
 <style lang="scss">
 .favourites-badge {

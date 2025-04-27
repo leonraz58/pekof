@@ -9,7 +9,7 @@ const store = useStore()
   <header class="the-header">
     <PageContainer>
       <div class="the-header__container">
-        <img src="/logo.png" alt="logo" class="the-header__logo" />
+        <a href="/"><img src="/logo.png" alt="logo" class="the-header__logo" /></a>
         <FavouritesBadge :value="store.favCount" />
       </div>
     </PageContainer>
@@ -30,7 +30,7 @@ const store = useStore()
   }
   &__logo {
     width: 160px;
-    transform: translateY(-7px);
+    transform: translateY(-5px);
   }
 }
 </style>

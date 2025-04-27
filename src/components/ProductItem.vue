@@ -35,6 +35,9 @@ defineProps({
     top: 10px;
     right: 10px;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__container {
     display: flex;
