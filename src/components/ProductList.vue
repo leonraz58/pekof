@@ -25,6 +25,7 @@ defineProps({
         :title="item.title"
         :image="item.image"
         :item="item"
+        :itemId="item.id"
         :is-favourite="item.isFavourite"
         :onClickFavourite="() => onClickFavourite(item)"
       />

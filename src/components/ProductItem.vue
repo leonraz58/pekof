@@ -9,6 +9,7 @@ defineProps({
   image: String,
   isFavourite: Boolean,
   onClickFavourite: Function,
+  itemId: Number,
 })
 </script>
 
@@ -17,11 +18,11 @@ defineProps({
     <div class="product-item__icon" @click="onClickFavourite">
       <IconHeartOutline v-if="!isFavourite" /><IconHeart v-if="isFavourite" />
     </div>
-    <div class="product-item__container">
+    <a class="product-item__container" :href="'product/' + itemId.toString()">
       <img :src="image" alt="item-image" class="product-item__img" />
       <TheTypography p3 center className="product-item__title">{{ title }}</TheTypography>
       <TheTypography h3 center>{{ JSON.stringify(price) }} руб.</TheTypography>
-    </div>
+    </a>
   </div>
 </template>
 

@@ -27,7 +27,7 @@ main {
   min-height: calc(100vh - 75px - 96px);
 }
 
-a:visited {
+a, a:visited {
   color: inherit;
 }
 
