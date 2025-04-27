@@ -11,37 +11,34 @@ type ItemType = {
 
 defineProps({
   items: Array<ItemType>,
-  onClickFavourite: Function
+  onClickFavourite: Function,
 })
-
 </script>
 
 <template>
   <div class="product-list">
     <div class="product-list__container">
-      <ProductItem v-for="item in items"
-                   :key="item.id"
-                   :price="item.price"
-                   :title="item.title"
-                   :image="item.image"
-                   :item="item"
-                   :is-favourite="item.isFavourite"
-                   :onClickFavourite = "()=>onClickFavourite(item)"
+      <ProductItem
+        v-for="item in items"
+        :key="item.id"
+        :price="item.price"
+        :title="item.title"
+        :image="item.image"
+        :item="item"
+        :is-favourite="item.isFavourite"
+        :onClickFavourite="() => onClickFavourite(item)"
       />
     </div>
   </div>
 </template>
 
-
 <style lang="scss">
 .product-list {
   &__container {
     padding-top: 112px;
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, auto));
-    gap: 40px
+    gap: 40px;
   }
 }
 </style>

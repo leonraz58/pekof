@@ -1,15 +1,18 @@
 <script setup>
 import FavouritesBadge from '@/components/FavouritesBadge.vue'
 import { useStore } from '@/stores/products.js'
+import PageContainer from '@/components/PageContainer.vue'
 
 const store = useStore()
 </script>
 <template>
   <header class="the-header">
-    <div class="the-header__container">
-      <img src="/logo.png" alt="logo" class="the-header__logo" />
-      <FavouritesBadge :value="store.favCount" />
-    </div>
+    <PageContainer>
+      <div class="the-header__container">
+        <img src="/logo.png" alt="logo" class="the-header__logo" />
+        <FavouritesBadge :value="store.favCount" />
+      </div>
+    </PageContainer>
   </header>
 </template>
 
@@ -21,8 +24,6 @@ const store = useStore()
   height: 75px;
   &__container {
     height: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
