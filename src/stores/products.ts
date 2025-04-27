@@ -48,5 +48,8 @@ export const useStore = defineStore('products', {
     getItemById: (state) => {
       return (itemId) => state.items.find((item) => item.id === itemId)
     },
+    getFavourites: (state) => {
+      return state.items.filter((item) => item.isFavourite)
+    },
   },
 })

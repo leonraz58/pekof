@@ -2,6 +2,7 @@
 import TheTypography from '@/components/TheTypography.vue'
 import IconHeartOutline from '@/components/icons/IconHeartOutline.vue'
 import IconHeart from '@/components/icons/IconHeart.vue'
+import IconCross from '@/components/icons/IconCross.vue'
 
 defineProps({
   title: String,
@@ -10,13 +11,17 @@ defineProps({
   isFavourite: Boolean,
   onClickFavourite: Function,
   itemId: Number,
+  isFavouritesItem: Boolean,
 })
 </script>
 
 <template>
   <div class="product-item">
     <div class="product-item__icon" @click="onClickFavourite">
-      <IconHeartOutline v-if="!isFavourite" /><IconHeart v-if="isFavourite" />
+      <IconHeartOutline v-if="!isFavourite && !isFavouritesItem" /><IconHeart
+        v-if="isFavourite && !isFavouritesItem"
+      />
+      <IconCross v-if="isFavouritesItem" />
     </div>
     <a class="product-item__container" :href="'product/' + itemId.toString()">
       <img :src="image" alt="item-image" class="product-item__img" />
