@@ -25,7 +25,9 @@ const { onClickFavourite } = inject('provider')
       <div v-if="item">
         <TheBreadcrumb>{{ item?.title }}</TheBreadcrumb>
         <div class="product-page__container">
-          <img :src="item?.image ?? noImage" alt="product image" class="product-page__image" />
+          <div class="product-page__image-wrapper">
+            <img :src="item?.image ?? noImage" alt="product image" class="product-page__image" />
+          </div>
           <div class="product-page__info-block">
             <TheTypography tag="h1" tag-variant="h1">{{ item?.title }}</TheTypography>
             <TheTypography tag="p" tag-variant="p1">{{ item?.description }}</TheTypography>
@@ -57,17 +59,26 @@ const { onClickFavourite } = inject('provider')
   &__container {
     display: flex;
     gap: 40px;
-    margin: 32px 0;
+    margin-top: 32px;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__image-wrapper {
+    max-width: 715px;
+    max-height: 680px;
   }
 
   &__image {
+    max-height: 100%;
     width: 100%;
-    max-width: 715px;
-    max-height: 680px;
     object-fit: contain;
   }
 
   &__info-block {
+    flex-shrink: 2;
     display: flex;
     flex-direction: column;
     gap: 24px;
