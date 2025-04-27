@@ -16,7 +16,7 @@ const store = useStore()
     <ProductList :items="store.items" :onClickFavourite="onClickFavourite" />
   </PageContainer>
   <PageContainer centered v-else>
-    <TheTypography h1>Нет товаров</TheTypography>
+    <TheTypography tag="h1" tag-variant="h1">Нет товаров</TheTypography>
   </PageContainer>
 </template>
 

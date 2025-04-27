@@ -18,13 +18,6 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
-
-  //&__container {
-  //  display: flex;
-  //  justify-content: center;
-  //  align-items: center;
-  //  min-height: var(--main-height);
-  //}
 }
 
 @keyframes rotation {

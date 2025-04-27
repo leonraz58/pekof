@@ -1,36 +1,28 @@
 <script setup lang="ts">
-defineProps(
-  {
-    p3: Boolean,
-    p1: Boolean,
-    h3: Boolean,
-    h2: Boolean,
-    h1: Boolean,
-    className: String,
-    center: Boolean,
-  }
-)
+defineProps({
+  className: String,
+  center: Boolean,
+  tag: String,
+  tagVariant: String,
+})
 </script>
 
-
 <template>
-  <p :class="[
-    p3 && 'the-typography__p_p3',
-    p1 && 'the-typography__p_p1',
-    h3 && 'the-typography__p_h3',
-    h2 && 'the-typography__p_h2',
-    h1 && 'the-typography__p_h1',
-    center && 'the-typography__p_center',
-    className
-  ]"
-     class="the-typography the-typography__p"
+  <component
+    :is="tag ?? 'p'"
+    :class="[
+      tagVariant && `the-typography__elem_${tagVariant}`,
+      center && 'the-typography__elem_center',
+      className,
+    ]"
+    class="the-typography the-typography__p"
   >
     <slot></slot>
-  </p>
+  </component>
 </template>
 
 <style lang="scss">
-.the-typography__p {
+.the-typography__elem {
   &_p3 {
     font-size: var(--font-size-s);
     line-height: var(--line-height-s);
@@ -41,6 +33,7 @@ defineProps(
   }
 
   &_h3 {
+    font-size: var(--font-size-m);
     line-height: var(--line-height-l);
     font-weight: var(--font-weight-medium);
   }
@@ -61,5 +54,4 @@ defineProps(
     text-align: center;
   }
 }
-
 </style>

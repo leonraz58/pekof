@@ -16,11 +16,13 @@ const { onClickFavourite } = inject('provider')
   <div class="favourites-page">
     <PageContainer v-if="items.length > 0">
       <TheBreadcrumb>{{ item?.title }}</TheBreadcrumb>
-      <TheTypography class-name="favourites-page__title" h1>Избранное</TheTypography>
+      <TheTypography class-name="favourites-page__title" tag="h1" tag-variant="h1"
+        >Избранное</TheTypography
+      >
       <FavouritesList :items="items" :onClickFavourite="onClickFavourite" />
     </PageContainer>
     <PageContainer centered v-else>
-      <TheTypography h1>Список избранного пуст</TheTypography>
+      <TheTypography tag="h1" tag-variant="h1">Список избранного пуст</TheTypography>
     </PageContainer>
   </div>
 </template>

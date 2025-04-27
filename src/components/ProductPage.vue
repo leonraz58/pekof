@@ -27,9 +27,9 @@ const { onClickFavourite } = inject('provider')
         <div class="product-page__container">
           <img :src="item?.image ?? noImage" alt="product image" class="product-page__image" />
           <div class="product-page__info-block">
-            <TheTypography h1>{{ item?.title }}</TheTypography>
-            <TheTypography p1>{{ item?.description }}</TheTypography>
-            <TheTypography p1 class-name="product-page__price"
+            <TheTypography tag="h1" tag-variant="h1">{{ item?.title }}</TheTypography>
+            <TheTypography tag="p" tag-variant="p1">{{ item?.description }}</TheTypography>
+            <TheTypography tag="p" tag-variant="p1" class-name="product-page__price"
               >{{ item?.price }} руб.
             </TheTypography>
             <div>
@@ -47,7 +47,7 @@ const { onClickFavourite } = inject('provider')
       </div>
     </PageContainer>
     <PageContainer centered v-if="!item"
-      ><TheTypography h1 center>Товар не найден.</TheTypography>
+      ><TheTypography tag="h1" tag-variant="h1" center>Товар не найден.</TheTypography>
     </PageContainer>
   </div>
 </template>

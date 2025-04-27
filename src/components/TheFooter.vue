@@ -5,8 +5,10 @@ import TheTypography from '@/components/TheTypography.vue'
 <template>
   <footer class="the-footer">
     <div class="the-footer__container">
-      <a href="/favourites"><TheTypography h3>Избранное</TheTypography></a>
-      <a href="tel:88008880088"><TheTypography h2>8 800 888 00 88</TheTypography></a>
+      <a href="/favourites"><TheTypography tag="h3" tag-variant="h3">Избранное</TheTypography></a>
+      <a href="tel:88008880088"
+        ><TheTypography tag="h2" tag-variant="h2">8 800 888 00 88</TheTypography></a
+      >
     </div>
   </footer>
 </template>

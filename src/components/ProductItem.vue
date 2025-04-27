@@ -25,8 +25,12 @@ defineProps({
     </div>
     <a class="product-item__container" :href="'product/' + itemId.toString()">
       <img :src="image" alt="item-image" class="product-item__img" />
-      <TheTypography p3 center className="product-item__title">{{ title }}</TheTypography>
-      <TheTypography h3 center>{{ JSON.stringify(price) }} руб.</TheTypography>
+      <TheTypography tag="p" tag-variant="p3" center className="product-item__title">{{
+        title
+      }}</TheTypography>
+      <TheTypography tag="h3" tag-variant="h3" center
+        >{{ JSON.stringify(price) }} руб.</TheTypography
+      >
     </a>
   </div>
 </template>
