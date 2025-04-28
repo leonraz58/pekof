@@ -17,7 +17,7 @@ defineProps({
 
 <template>
   <div class="favourites-list">
-    <div class="favourites-list__container">
+    <TransitionGroup name="list" tag="ul" class="favourites-list__container">
       <ProductItem
         v-for="item in items"
         :key="item.id"
@@ -30,7 +30,7 @@ defineProps({
         :onClickFavourite="() => onClickFavourite(item)"
         is-favourites-item
       />
-    </div>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -42,5 +42,15 @@ defineProps({
     grid-template-columns: repeat(auto-fill, minmax(320px, auto));
     gap: 40px;
   }
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 </style>

@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="product-item">
+  <li class="product-item">
     <div class="product-item__icon" @click="onClickFavourite">
       <IconHeartOutline v-if="!isFavourite && !isFavouritesItem" /><IconHeart
         v-if="isFavourite && !isFavouritesItem"
@@ -32,7 +32,7 @@ defineProps({
         >{{ JSON.stringify(price) }} руб.</TheTypography
       >
     </RouterLink>
-  </div>
+  </li>
 </template>
 
 <style lang="scss">

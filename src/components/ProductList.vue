@@ -17,7 +17,7 @@ defineProps({
 
 <template>
   <div class="product-list">
-    <div class="product-list__container">
+    <ul class="product-list__container">
       <ProductItem
         v-for="item in items"
         :key="item.id"
@@ -29,7 +29,7 @@ defineProps({
         :is-favourite="item.isFavourite"
         :onClickFavourite="() => onClickFavourite(item)"
       />
-    </div>
+    </ul>
   </div>
 </template>
 

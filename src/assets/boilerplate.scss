@@ -14,6 +14,10 @@
   font-weight: normal;
 }
 
+li {
+  list-style: none;
+}
+
 body {
   font-family: var(--font-family-primary), sans-serif;
   line-height: var(--line-height-m);
