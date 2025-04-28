@@ -1,15 +1,19 @@
 <script setup lang="ts">
-defineProps({
-  className: String,
-  center: Boolean,
-  tag: String,
-  tagVariant: String,
-})
+type TagVariant = 'p1' | 'p3' | 'h1' | 'h2' | 'h3'
+
+type Props = {
+  className?: String
+  center?: Boolean
+  tag?: { type: String; default: 'p' }
+  tagVariant?: TagVariant
+}
+
+defineProps<Props>()
 </script>
 
 <template>
   <component
-    :is="tag ?? 'p'"
+    :is="tag"
     :class="[
       tagVariant && `the-typography__elem_${tagVariant}`,
       center && 'the-typography__elem_center',

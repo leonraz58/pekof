@@ -5,7 +5,7 @@ import TheTypography from '@/components/TheTypography.vue'
 <template>
   <div class="the-breadcrumb the-breadcrumb__container">
     <TheTypography
-      ><a href="/">Главная</a> >
+      ><RouterLink to="/">Главная</RouterLink> >
       <slot></slot>
     </TheTypography>
   </div>

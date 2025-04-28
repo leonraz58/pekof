@@ -7,9 +7,9 @@ import PageContainer from '@/components/PageContainer.vue'
   <footer class="the-footer">
     <PageContainer>
       <div class="the-footer__container">
-        <a href="/favourites">
+        <RouterLink to="/favourites">
           <TheTypography tag="h3" tag-variant="h3">Избранное</TheTypography>
-        </a>
+        </RouterLink>
         <a href="tel:88008880088">
           <TheTypography tag="h2" tag-variant="h2">8 800 888 00 88</TheTypography>
         </a>

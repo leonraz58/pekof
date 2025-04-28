@@ -1,13 +1,14 @@
 <script setup lang="ts">
 defineProps({
   centered: Boolean,
+  className: String,
 })
 </script>
 
 <template>
   <div
     class="page-container page-container__elem"
-    :class="[centered && 'page-container__elem_centered']"
+    :class="[centered && 'page-container__elem_centered', className]"
   >
     <slot></slot>
   </div>

@@ -23,15 +23,15 @@ defineProps({
       />
       <IconCross v-if="isFavouritesItem" />
     </div>
-    <a class="product-item__container" :href="'product/' + itemId.toString()">
+    <RouterLink class="product-item__container" :to="'product/' + itemId.toString()">
       <img :src="image" alt="item-image" class="product-item__img" />
-      <TheTypography tag="p" tag-variant="p3" center className="product-item__title">{{
+      <TheTypography tag="p" tag-variant="p3" center="true" className="product-item__title">{{
         title
       }}</TheTypography>
-      <TheTypography tag="h3" tag-variant="h3" center
+      <TheTypography tag="h3" tag-variant="h3" center="true"
         >{{ JSON.stringify(price) }} руб.</TheTypography
       >
-    </a>
+    </RouterLink>
   </div>
 </template>
 

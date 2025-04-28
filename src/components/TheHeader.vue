@@ -7,11 +7,9 @@ const store = useStore()
 </script>
 <template>
   <header class="the-header">
-    <PageContainer>
-      <div class="the-header__container">
-        <a href="/"><img src="/logo.png" alt="logo" class="the-header__logo" /></a>
-        <FavouritesBadge :value="store.favCount" />
-      </div>
+    <PageContainer class="the-header__container">
+      <RouterLink to="/"><img src="/logo.png" alt="logo" class="the-header__logo" /></RouterLink>
+      <FavouritesBadge :value="store.favCount" />
     </PageContainer>
   </header>
 </template>

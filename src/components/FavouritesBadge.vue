@@ -4,12 +4,12 @@ import IconHeart from '@/components/icons/IconHeart.vue'
 </script>
 
 <template>
-  <a class="favourites-badge" href="/favourites">
+  <RouterLink class="favourites-badge" to="/favourites">
     <div class="favourites-badge__container">
       <IconHeart />
       <span v-if="value > 0" class="favourites-badge__indicator">{{ value }}</span>
     </div>
-  </a>
+  </RouterLink>
 </template>
 <style lang="scss">
 .favourites-badge {
